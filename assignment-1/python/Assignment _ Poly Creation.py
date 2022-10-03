@@ -2,10 +2,13 @@
 
 import argparse
 import maya.standalone
+maya.standalone.initialize()
 import maya.cmds
 
+"""This a docstring"""
+#this is a comment
 parser = argparse.ArgumentParser(description='This script creates a bunch of cylinders.')
-parser.add_argument('num_cubes', type=int, help="Number of cubes")
+parser.add_argument('num_cylinders', type=int, help="Number of cylinders")
 args = parser.parse_args()
 
 
@@ -17,5 +20,5 @@ for i in range(args.num_cylinders):
 print("Meshes in the Maya scene:")
 print(maya.cmds.ls(geometry=True))
 
-
+#close maya in the background after process is done
 maya.standalone.uninitialize()
