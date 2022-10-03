@@ -9,7 +9,7 @@ import maya.standalone
 maya.standalone.initialize()
 import maya.cmds
 
-print("Creating {} cube(s)...".format(args.num_cylinders))
+print("Creating {} cylinder(s)...".format(args.num_cylinders))
 for i in range(args.num_cylinders):
     print("Created cylinders #{}".format(i))
     maya.cmds.polyCylinder()
