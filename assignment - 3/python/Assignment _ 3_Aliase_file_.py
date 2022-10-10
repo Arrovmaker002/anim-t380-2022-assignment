@@ -7,7 +7,10 @@ import os
 filepath = os.path.join(r"H:\Main Storage\College\Classes Current\Techincal Pipeline\anim-t380-2022-assignment\assignment - 3\assets", "asset.alias")
 
 #Creates the file named and loctation set above.
-alias = open(filepath, "x")
+alias = open(filepath, "w")
 
+#write the word "alias" in the file
+alias.write("alias")
+alias.close()
 
 
