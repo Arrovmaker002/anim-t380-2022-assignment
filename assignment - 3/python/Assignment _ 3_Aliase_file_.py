@@ -10,7 +10,7 @@ filepath = os.path.join(r"H:\Main Storage\College\Classes Current\Techincal Pipe
 alias = open(filepath, "w")
 
 #write the word "alias" in the file
-alias.write("alias")
+alias.write("asset")
 alias.close()
 
 
