@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f495c84-188e-4736-a4be-628308cd847c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../assignment - 3/asset/maya/scenes/Group.ma" beforeDir="false" afterPath="$PROJECT_DIR$/../../assignment - 3/asset/maya/scenes/Group.ma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../assignment - 3/etc/asset.alias" beforeDir="false" afterPath="$PROJECT_DIR$/../../assignment - 3/etc/asset.alias" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../assignment - 3/python/Assignment _ 3_Aliase_file_.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../assignment - 3/python/Assignment _ 3_Aliase_file_.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../assignment - 3/python/Assignment _ 3_Maya_Grouping.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../assignment - 3/python/Assignment _ 3_Maya_Grouping.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +44,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager">
     <configuration name="Assignment _ Poly Creation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
