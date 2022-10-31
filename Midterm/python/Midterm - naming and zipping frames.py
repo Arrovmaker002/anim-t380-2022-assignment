@@ -61,12 +61,6 @@ for file in os.listdir():
     i+=1
 
 
-
-
-
-
-
-
 """______________________________Giving Option To Zip renamed files______________________________"""
 
 #get input for if user wants a zip file
@@ -87,6 +81,8 @@ else:
     print('Files not Zipped.')
     quit()
 
+#changing to correct source folder for file zipping to use
+source_folder = destination_folder
 
 #if user chose to zip and the zip type, do the zip function specified:
 if zip_type == "A" or zip_type == "a":
