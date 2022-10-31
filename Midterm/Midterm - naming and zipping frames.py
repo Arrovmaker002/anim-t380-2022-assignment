@@ -19,24 +19,24 @@ namingdict = {
 savedFileName = namingdict
 print(savedFileName["project"]+"_"+savedFileName["file"]+"_"+savedFileName["frame"])
 
-#copying files in a directory using shutil
+'''Copying files in a directory to another directory using shutil'''
 
-source_folder = r"H:\Main Storage\College\Classes Current\Techincal Pipeline\anim-t380-2022-assignment\Midterm\asset\Techincal Pipeline Midterm\images\\"
-destination_folder = r"H:\Main Storage\College\Classes Current\Techincal Pipeline\anim-t380-2022-assignment\Midterm\asset\outgoing assets\\"
+source_input = input('Source folder: (type whole path name)')
+destination_input = input('Destination folder: (type whole path name)')
 
 
-"""
-# Function to rename multiple files
-def main():
-    folder = "xyz"
-    for count, filename in enumerate(os.listdir(folder)):
-        dst = f"Hostel {str(count)}.jpg"
-        src = f"{destination_folder}/{savedFileName}"  # foldername/filename, if .py file is outside folder
-        dst = f"{folder}/{dst}"
+source_folder = source_input+(r'\\')
+destination_folder = destination_input+(r'\\')
 
-        # rename() function will
-        # rename all the files
-        os.rename(src, dst)
+""" copying files"""
+# fetch all files
+for file_name in os.listdir(source_folder):
+    # construct full file path
+    source = source_folder + file_name
+    destination = destination_folder + file_name
+    # copy only files
+    if os.path.isfile(source):
+        shutil.copy(source, destination)
+        print('copied', file_name)
 
-main()
-"""
+
