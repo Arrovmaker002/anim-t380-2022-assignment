@@ -10,7 +10,8 @@ from os import path
 from shutil import make_archive
 
 print("___________Welcome to Frame Rename___________")
-
+print("`````````````````````````````````````````````")
+print("Set source and destination paths for files to edit")
 
 
 '''______________________________Copying files in a directory to another directory using shutil______________________________'''
@@ -67,7 +68,7 @@ for file in os.listdir():
 zip_option = input('Create ZIP? (Y/N)')
 
 #variables for later
-name_format = "ProjectName_shot"
+name_format = file_name
 zip_type = "A"
 custom_zip_drc = '1'
 
