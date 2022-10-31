@@ -9,17 +9,9 @@ from zipfile import ZipFile
 from os import path
 from shutil import make_archive
 
-#dictionary for naming convention:
-namingdict = {
-    "project": "project name",
-    "file": "file name",
-    "frame": "frame number"
-}
+print("___________Welcome to Frame Rename___________")
 
 
-#print out dictionary results to a line
-savedFileName = namingdict
-print(savedFileName["project"]+"_"+savedFileName["file"]+"_"+savedFileName["frame"])
 
 '''______________________________Copying files in a directory to another directory using shutil______________________________'''
 
@@ -40,6 +32,34 @@ for file_name in os.listdir(source_folder):
     if os.path.isfile(source):
         shutil.copy(source, destination)
         print('copied', file_name)
+
+#The naming convention demonstrated here goes the followin: 'project name'_'scene name'_'shot'_'version'_frame number
+#We ask the values except the frame number (that will be generated automatically)
+
+
+print("In the following Prompts, set the Project, scene, and shot name as well as shot version and the desired image format (eg: .png")
+
+projectName = input("Set Project name: ")
+sceneName = input("Set Scene name: ")
+shotName = input("Set Shot name: ")
+shotVersion = input("Set Shot version: ")
+imageFormat = input("Set Image format: ")
+
+filename = f"{projectName}_{sceneName}_{shotName}_{shotVersion}_"
+
+#print(filename)
+
+filesForRename_input = destination_input
+
+#iterate upon the files and rename them with correct numbering
+os.chdir(filesForRename_input)
+i=1
+for file in os.listdir():
+    src=file
+    dst= filename + str(i) + imageFormat
+    os.rename(src,dst)
+    i+=1
+
 
 
 
