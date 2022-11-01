@@ -1,0 +1,16 @@
+Inputs for Midterm:
+
+source folder:
+``````````````
+H:\Main Storage\College\Classes Current\Techincal Pipeline\anim-t380-2022-assignment\Midterm\asset\Techincal Pipeline Midterm\images
+
+destination folder:
+```````````````````
+H:\Main Storage\College\Classes Current\Techincal Pipeline\anim-t380-2022-assignment\Midterm\asset\outgoing assets
+
+
+
+
+custom folder to zip to:
+`````````````````````````
+C:\Users\Public\Documents
