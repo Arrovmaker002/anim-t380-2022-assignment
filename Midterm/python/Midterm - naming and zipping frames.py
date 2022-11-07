@@ -19,6 +19,7 @@ projectName = input("Set Project name: ")
 sceneName = input("Set Scene name: ")
 shotName = input("Set Shot name: ")
 shotVersion = input("Set Shot version: ")
+framePadding = input("set the padding for frame numbers: ")
 #imageFormat = input("Set Image format: ")
 
 """______________________________Giving Option To Zip renamed files______________________________"""
@@ -74,9 +75,11 @@ name_format = filename
 #iterate upon the files and rename them with correct numbering
 os.chdir(filesForRename_input)
 i=1
+n = int(framePadding)
+
 for file in os.listdir():
     src=file
-    dst= filename + str(i) + ".png"
+    dst= filename + str(i).zfill(n) + ".png"
     os.rename(src,dst)
     i+=1
 
