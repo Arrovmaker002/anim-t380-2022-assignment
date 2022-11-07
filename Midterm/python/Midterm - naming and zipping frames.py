@@ -93,10 +93,11 @@ custom_zip_drc = '1'
 source_folder = destination_folder
 
 #if user chose to zip and the zip type, do the zip function specified:
-if zip_type == "A" or zip_type == "a" and zip_option == "true":
+if (zip_type == "A" or zip_type == "a") and zip_option == "true":
+    import pdb; pdb.set_trace()
     shutil.make_archive(source_folder + (r"\\") + name_format, 'zip', source_folder)
-    print("Files Zipped")
-elif zip_type == "B" or zip_type == "b" and zip_option == "true":
+    print("Files Zipped.")
+elif (zip_type == "B" or zip_type == "b") and zip_option == "true":
     custom_zip_drc = input('File path for custom ZIP destination directory: ')
     custom_zip_drc = custom_zip_drc + (r"\\")
     shutil.make_archive(custom_zip_drc + name_format, 'zip', source_folder)
