@@ -25,17 +25,18 @@ framePadding = input("set the padding for frame numbers: ")
 """______________________________Giving Option To Zip renamed files______________________________"""
 
 #get input for if user wants a zip file
-zip_option = input('Create ZIP? (Y/N)')
-
-
+zip_option_input = input('Create ZIP? (Y/N)')
 
 
 #if user agrees ask user to specify a copy of the directory as zip or to zip up source
-if zip_option == "Y" or zip_option == "y":
+#if zip_option_input == "Y" or zip_option_input == "y":
+#if zip_option_input in ["Y", 'y']:
+if zip_option_input.lower() == "y":
     print('Copy to ZIP file in same directory (A) or custom ZIP destination directory? (B) ')
-    zip_option = 'true'
+    zip_option = True
     zip_type = input('A/B')
 else:
+    zip_option = False
     print('Files will not be Zipped.')
 
 
@@ -59,7 +60,7 @@ for file_name in os.listdir(source_folder):
         shutil.copy(source, destination)
         print('copied', file_name)
 
-#The naming convention demonstrated here goes the followin: 'project name'_'scene name'_'shot'_'version'_frame number
+#The naming convention demonstrated here goes the following: 'project name'_'scene name'_'shot'_'version'_frame number
 #We ask the values except the frame number (that will be generated automatically)
 
 
@@ -93,11 +94,11 @@ custom_zip_drc = '1'
 source_folder = destination_folder
 
 #if user chose to zip and the zip type, do the zip function specified:
-if (zip_type == "A" or zip_type == "a") and zip_option == "true":
+if (zip_type == "A" or zip_type == "a") and zip_option:
     import pdb; pdb.set_trace()
     shutil.make_archive(source_folder + (r"\\") + name_format, 'zip', source_folder)
     print("Files Zipped.")
-elif (zip_type == "B" or zip_type == "b") and zip_option == "true":
+elif (zip_type == "B" or zip_type == "b") and zip_option:
     custom_zip_drc = input('File path for custom ZIP destination directory: ')
     custom_zip_drc = custom_zip_drc + (r"\\")
     shutil.make_archive(custom_zip_drc + name_format, 'zip', source_folder)
