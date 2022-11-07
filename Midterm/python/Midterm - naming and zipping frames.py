@@ -80,9 +80,10 @@ n = int(framePadding)
 
 for file in os.listdir():
     src=file
-    dst= filename + str(i).zfill(n) + ".png"
-    os.rename(src,dst)
-    i+=1
+    baseName, ext = os.path.splitext(src)
+    dst = filename + str(i).zfill(n) + ext
+    os.rename(src, dst)
+    i += 1
 
 
 
@@ -95,7 +96,6 @@ source_folder = destination_folder
 
 #if user chose to zip and the zip type, do the zip function specified:
 if (zip_type == "A" or zip_type == "a") and zip_option:
-    import pdb; pdb.set_trace()
     shutil.make_archive(source_folder + (r"\\") + name_format, 'zip', source_folder)
     print("Files Zipped.")
 elif (zip_type == "B" or zip_type == "b") and zip_option:
