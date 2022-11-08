@@ -11,3 +11,5 @@ Tips when using this script:
 --- Frame padding option includes the frame number (e.g: frame padding of 5 at frame 150 will end up as frame#_00150, not as frame#_00000150)
 
 --- The script will copy files to the new direcctory before renaming them. Watch your typing as you will have to restart the operation if there is an error.
+
+--- Archiving is only in zip format, not 7zip or other formats.
