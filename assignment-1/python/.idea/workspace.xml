@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f495c84-188e-4736-a4be-628308cd847c" name="Changes" comment="" />
+    <list default="true" id="2f495c84-188e-4736-a4be-628308cd847c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Midterm/python/Midterm - naming and zipping frames.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Midterm/python/Midterm - naming and zipping frames.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +46,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration name="Assignment _ Poly Creation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />

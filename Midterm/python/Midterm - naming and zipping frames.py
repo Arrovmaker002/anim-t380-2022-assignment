@@ -1,6 +1,6 @@
-'''------------------Renaming frames with a specific naming convention and zipping up the result------------------'''
+"""------------------Renaming frames with a specific naming convention and zipping up the result------------------"""
 
-#Import Packages
+# Import Packages
 import os
 import sys
 import shutil
@@ -9,28 +9,28 @@ from zipfile import ZipFile
 from os import path
 from shutil import make_archive
 
+# Opening messages when script is started
 print("___________Welcome to Frame Rename___________")
 print("`````````````````````````````````````````````")
 print("Set source and destination paths for files to edit")
+print("In the following Prompts, set the Project, Scene, and shot name as well as shot version and the desired image format (eg: .png")
 
-print("In the following Prompts, set the Project, scene, and shot name as well as shot version and the desired image format (eg: .png")
-
+# We ask the values except the frame number (that will be generated automatically).
 projectName = input("Set Project name: ")
 sceneName = input("Set Scene name: ")
 shotName = input("Set Shot name: ")
 shotVersion = input("Set Shot version: ")
 framePadding = input("set the padding for frame numbers: ")
-#imageFormat = input("Set Image format: ")
+
 
 """______________________________Giving Option To Zip renamed files______________________________"""
 
-#get input for if user wants a zip file
+# Get input for if user wants a zip file
 zip_option_input = input('Create ZIP? (Y/N)')
 
-
-#if user agrees ask user to specify a copy of the directory as zip or to zip up source
-#if zip_option_input == "Y" or zip_option_input == "y":
-#if zip_option_input in ["Y", 'y']:
+# If user agrees ask user to specify a copy of the directory as zip or to zip up source.
+# if zip_option_input == "Y" or zip_option_input == "y":
+# if zip_option_input in ["Y", 'y']:
 if zip_option_input.lower() == "y":
     print('Copy to ZIP file in same directory (A) or custom ZIP destination directory? (B) ')
     zip_option = True
@@ -39,18 +39,15 @@ else:
     zip_option = False
     print('Files will not be Zipped.')
 
-
-'''______________________________Copying files in a directory to another directory using shutil______________________________'''
+"""_________________________Copying files in a directory to another directory using shutil_________________________"""
 
 source_input = input('Source folder: (type whole path name)')
 destination_input = input('Destination folder: (type whole path name)')
-
-
 source_folder = source_input+(r'\\')
 destination_folder = destination_input+(r'\\')
 
 """______________________________Copying files______________________________"""
-# fetch all files from the source directory and copy them to the destination directory
+# Fetch all files from the source directory and copy them to the destination directory
 for file_name in os.listdir(source_folder):
     # construct full file path
     source = source_folder + file_name
@@ -60,20 +57,12 @@ for file_name in os.listdir(source_folder):
         shutil.copy(source, destination)
         print('copied', file_name)
 
-#The naming convention demonstrated here goes the following: 'project name'_'scene name'_'shot'_'version'_frame number
-#We ask the values except the frame number (that will be generated automatically)
-
-
-
-
+# The naming convention set from inputs into a single variable.
 filename = f"{projectName}_{sceneName}_{shotName}_{shotVersion}_"
-
-
 filesForRename_input = destination_input
-
 name_format = filename
 
-#iterate upon the files and rename them with correct numbering
+# Iterate upon the files and rename them with correct numbering.
 os.chdir(filesForRename_input)
 i=1
 n = int(framePadding)
@@ -85,16 +74,13 @@ for file in os.listdir():
     os.rename(src, dst)
     i += 1
 
-
-
-
-#variables for zipping
+# Variables for zipping
 zip_type = "A"
 custom_zip_drc = '1'
-#changing to correct source folder for file zipping to use
+# Changing to correct source folder for file zipping to use
 source_folder = destination_folder
 
-#if user chose to zip and the zip type, do the zip function specified:
+# If user chose to zip and the zip type, do the zip function specified:
 if (zip_type == "A" or zip_type == "a") and zip_option:
     shutil.make_archive(source_folder + (r"\\") + name_format, 'zip', source_folder)
     print("Files Zipped.")
