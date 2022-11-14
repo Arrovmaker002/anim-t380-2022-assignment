@@ -17,7 +17,44 @@ bl_info = {
  "tracker_url": "",
  "category": "Object"}
 
-#add cube mesh to scene operation
+
+#material creation code (to be called later)(code from Vividfax)
+#new material
+def newMaterial(id):
+
+    mat = bpy.data.materials.get(id)
+
+    if mat is None:
+        mat = bpy.data.materials.new(name=id)
+    mat.use_nodes = True
+    if mat.node_tree:
+        mat.node_tree.links.clear()
+        mat.node_tree.nodes.clear()
+    return mat
+
+#add Shaders within the material
+def newShader(id, type, r, g, b):
+
+    mat = newMaterial(id)
+
+    nodes = mat.node_tree.nodes
+    links = mat.node_tree.links
+    output = nodes.new(type='ShaderNodeOutputMaterial')
+    if type == "diffuse":
+        shader = nodes.new(type='ShaderNodeBsdfDiffuse')
+        nodes["Diffuse BSDF"].inputs[0].default_value = (r, g, b, 1)
+    elif type == "emission":
+        shader = nodes.new(type='ShaderNodeEmission')
+        nodes["Emission"].inputs[0].default_value = (r, g, b, 1)
+        nodes["Emission"].inputs[1].default_value = 1
+    elif type == "glossy":
+        shader = nodes.new(type='ShaderNodeBsdfGlossy')
+        nodes["Glossy BSDF"].inputs[0].default_value = (r, g, b, 1)
+        nodes["Glossy BSDF"].inputs[1].default_value = 0
+    links.new(shader.outputs[0], output.inputs[0])
+    return mat
+
+#Mesh Operation Code
 class MeshOperator(Operator):
 
 #Operation name and label
@@ -49,7 +86,6 @@ class QuickUI(bpy.types.Panel):
 
         # Get each operation that will be used for the panel
         col.operator(MeshOperator.bl_idname, text="Generate Cube", icon="MESH_CUBE")
-
 
 #Register and Unregister the operations used in the panel (code from Brandon Jakovasic)
 
