@@ -23,7 +23,6 @@ bl_info = {
 # New material
 def newMaterial(id):
     mat = bpy.data.materials.get(id)
-
     if mat is None:
         mat = bpy.data.materials.new(name=id)
     mat.use_nodes = True
@@ -52,11 +51,8 @@ def newShader(id, type, r, g, b):
     links.new(shader.outputs[0], output.inputs[0])
     return mat
 
-'''# Generate the random numbers for the r, g, b values
-r = random.uniform(0, 1)
-g = random.uniform(0, 1)
-b = random.uniform(0, 1)
-'''
+shaderNumber = random.uniform(0, 1000)
+
 # Mesh Operation Code
 class MeshOperator(Operator):
     # Operation name and label
@@ -66,7 +62,7 @@ class MeshOperator(Operator):
     # Execute it the function
     def execute(self, context):
         # Create new material with shader
-        mat = newShader("Random Cube Color", "diffuse", random.uniform(0, 1), random.uniform(0, 1), random.uniform(0, 1))
+        mat = newShader("Random Cube Color #" + str(shaderNumber), "diffuse", random.uniform(0, 1), random.uniform(0, 1), random.uniform(0, 1))
         # Command to add the cube
         bpy.ops.mesh.primitive_cube_add(size=2, enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
         # Add shader to the cube
@@ -96,18 +92,15 @@ class QuickUI(bpy.types.Panel):
 
 classes = (MeshOperator, QuickUI)
 
-
 def register():
     from bpy.utils import register_class
     for cls in classes:
         register_class(cls)
 
-
 def unregister():
     from bpy.utils import unregister_class
     for cls in reversed(classes):
         unregister_class(cls)
-
 
 if __name__ == "__main__":
     register()
