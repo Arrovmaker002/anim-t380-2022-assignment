@@ -32,26 +32,23 @@ class MeshOperator(Operator):
 
         return {'FINISHED'}
 
-#add color attribute to cube mesh generated
+#add color attribute to cube mesh generated (WIP)
 
 #UI code
 class QuickUI(bpy.types.Panel):
     bl_idname = 'VIEW3D_PT_example_panel'
-    bl_label = 'Quick Transforms and UVs'
+    bl_label = 'Random Colored Cube Generation'
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
 
-    # Create a a UI by drawing, and calling the classes of the functions
+    # Create a UI:
     def draw(self, context):
         layout = self.layout
 
         col = layout.column(align=True)
 
         # Get each operation that will be used for the panel
-        col.operator(TransformOperator.bl_idname, text="Generate Cube", icon="MESH_CUBE")
-
-
-
+        col.operator(MeshOperator.bl_idname, text="Generate Cube", icon="MESH_CUBE")
 
 
 #Register and Unregister the operations used in the panel (code from Brandon Jakovasic)
