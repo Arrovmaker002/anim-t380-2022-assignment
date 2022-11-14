@@ -4,6 +4,7 @@
 import os
 import bpy
 from bpy.types import (Panel, Operator)
+import random
 
 # This is for allowing the code to be used as an addon for Blender
 bl_info = {
@@ -30,8 +31,6 @@ def newMaterial(id):
         mat.node_tree.links.clear()
         mat.node_tree.nodes.clear()
     return mat
-
-
 # Add Shaders within the material
 def newShader(id, type, r, g, b):
     mat = newMaterial(id)
@@ -53,7 +52,11 @@ def newShader(id, type, r, g, b):
     links.new(shader.outputs[0], output.inputs[0])
     return mat
 
-
+'''# Generate the random numbers for the r, g, b values
+r = random.uniform(0, 1)
+g = random.uniform(0, 1)
+b = random.uniform(0, 1)
+'''
 # Mesh Operation Code
 class MeshOperator(Operator):
     # Operation name and label
@@ -62,10 +65,12 @@ class MeshOperator(Operator):
 
     # Execute it the function
     def execute(self, context):
+        # Create new material with shader
+        mat = newShader("Random Cube Color", "diffuse", random.uniform(0, 1), random.uniform(0, 1), random.uniform(0, 1))
         # Command to add the cube
-        bpy.ops.mesh.primitive_cube_add(size=2, enter_editmode=False, align='WORLD', location=(0, 0, 0),
-                                        scale=(1, 1, 1))
-        # Add color attribute to cube mesh generated (WIP)
+        bpy.ops.mesh.primitive_cube_add(size=2, enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
+        # Add shader to the cube
+        bpy.context.active_object.data.materials.append(mat)
 
         return {'FINISHED'}
 
