@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f495c84-188e-4736-a4be-628308cd847c" name="Changes" comment="" />
+    <list default="true" id="2f495c84-188e-4736-a4be-628308cd847c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Final/Python/Material Baking.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final/Python/Material Baking.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Final/Python/PBR to Unreal Packed.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final/Python/PBR to Unreal Packed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
