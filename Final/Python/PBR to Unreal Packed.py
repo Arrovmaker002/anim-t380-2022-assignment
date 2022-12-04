@@ -21,7 +21,51 @@ bl_info = {
 
 # Register and Unregister the operations used in the panel (code from Brandon Jakovasic)
 
-classes = (MeshOperator, QuickUI)
+classes = (BakeryOperator, QuickUI)
+
+class BakeryOperation(bpy.types.Operator):
+    bl_idname = "bakery.bake"
+    bl_label = "Bake textures"
+
+    def invoke(self, context, event):
+        scn = context.scene
+        materials = set()
+        for o in scn.bake_objects:
+            materials = materials.union(set(map(lambda x: (o.name, x.name), bpy.data.objects[o.name].data.materials)))
+
+        for (name, material) in materials:
+            bpy.data.materials[material].use_nodes = True
+            node_tree = bpy.data.materials[material].node_tree
+            found = False
+
+            img_name = name+"_bake"
+            for n in [n for n in node_tree.nodes if n.type == 'TEX_IMAGE']:
+                found = False
+
+                if n.image != None and n.image.name == img_name:
+                    n.select = True
+                    node_tree.nodes.active = n
+                    found = True
+                    break
+            if not found:
+                node = node_tree.nodes.new("ShaderNodeTexImage")
+                node.select = True
+                node_tree.nodes.active = node
+                if img_name in bpy.data.images:
+                    node.image = bpy.data.images[img_name]
+                else:
+                    node.image = bpy.data.images.new(name + "_bake", 512, 512)
+
+            img = bpy.data.images[img_name]
+
+            bpy.ops.object.select_all("EXEC_DEFAULT", action="DESELECT")
+            bpy.ops.object.select_pattern(pattern = name)
+            bpy.context.scene.objects.active = bpy.data.objects[name]
+            bpy.ops.uv.lightmap_pack("EXEC_SCREEN")
+            print("Baking " + name)
+            bpy.ops.object.bake("INVOKE_DEFAULT") # or EXEC_DEFAULT
+        return {'FINISHED'}
+
 
 def register():
     from bpy.utils import register_class
