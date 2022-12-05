@@ -27,7 +27,10 @@ class BakeryOperation(bpy.types.Operator):
     bl_idname = "bakery.bake"
     bl_label = "Convert Textures"
 
-    def 
+    def invoke(self, context, event):
+        
+        return {'FINISHED'}
+
 
 def register():
     from bpy.utils import register_class
