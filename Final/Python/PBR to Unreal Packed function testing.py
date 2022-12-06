@@ -16,8 +16,12 @@ imgPath = "H:\Main Storage\College\Classes Current\Techincal Pipeline\anim-t380-
 
 # load images to combine:
 
-matallicImg = cv2.imread( imgPath + "rust_coarse_01_ao_2k" , cv.anycolor )
+MetallicImg = cv2.imread( imgPath + "rust_coarse_01_ao_2k" , cv2.IMREAD_ANYCOLOR | cv2.IMREAD_ANYDEPTH)
 
-OcclusionImg = cv2.imread()
+OcclusionImg = cv2.imread( imgPath + "rust_coarse_01_ao_2k" , cv2.IMREAD_ANYCOLOR | cv2.IMREAD_ANYDEPTH)
 
-RoughnessImg = cv2.imread()
+RoughnessImg = cv2.imread( imgPath + "rust_coarse_01_ao_2k" , cv2.IMREAD_ANYCOLOR | cv2.IMREAD_ANYDEPTH)
+
+# Separate each image into the channel it will fill
+
+
