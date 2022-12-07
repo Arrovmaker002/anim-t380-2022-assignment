@@ -12,20 +12,6 @@ import cv2
 
 os.environ["OPENCV_IO_ENABLE_OPENEXR"]="1"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # image opening testing:
 
 filePath = input('image file path: ') 
@@ -34,7 +20,7 @@ ext = pathlib.Path(filePath).suffix
 print('the file extension is:'+ ext)
 # load images to combine:
 
-MetallicImg = cv2.imread(filePath+ext ,cv2.IMREAD_COLOR)
+MetallicImg = cv2.imread(filePath + ext ,cv2.IMREAD_COLOR)
 
 blue, green, red = cv2.split(MetallicImg)
   

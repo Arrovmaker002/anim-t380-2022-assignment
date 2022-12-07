@@ -11,7 +11,7 @@ import cv2
 #imagename = input('image file path: ')
 
 # read the image data using PIL and set the image data to variable "image"
-Testimage = Image.open(r'C:\Users\vince\Downloads/Test_Opencv2')
+Testimage = Image.open(r'C:\Users\vince\Downloads/Test_Opencv2.png')
 
 # extract the format from the metadata
 # extracting the exif metadata

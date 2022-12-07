@@ -9,7 +9,7 @@ from bpy.types import (Panel, Operator)
 bl_info = {
     "name": "PBR to Unreal Packed",
     "author": "Vincent Arrouays, Brandon Jakosavic",
-    "description": "Converts a PBR texture set to a Unreal Packed Texture set within Blender",
+    "description": "Converts a PBR texture set to a Unreal Packed Texture set within Blender using the baking format.",
     "blender": (3, 30, 1),
     "location": "3D View",
     "warning": "In Development",
