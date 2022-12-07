@@ -190,9 +190,9 @@ class BakeAllOperator(Operator):
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Panel~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 #Create a class for the Panel
-class QuickUI(bpy.types.Panel):
+class BakingUI(bpy.types.Panel):
     
-    bl_idname = 'VIEW3D_PT_T_panel'
+    bl_idname = 'VIEW3D_PT_Baking_panel'
     bl_label = 'Bake Textures'
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
@@ -218,7 +218,7 @@ class QuickUI(bpy.types.Panel):
 
 # Register and Unregister the operations used in the panel
 
-classes = (BakeColorMapOperator, BakeRoughnessMapOperator, BakeNormalMapOperator, BakeEmissionMapOperator, BakeAoMapOperator, BakeAllOperator, QuickUI)
+classes = (BakeColorMapOperator, BakeRoughnessMapOperator, BakeNormalMapOperator, BakeEmissionMapOperator, BakeAoMapOperator, BakeAllOperator, BakingUI)
 
 def register():
     from bpy.utils import register_class
