@@ -1,6 +1,10 @@
 This is an addon that contains two texture related functions.
 
-The first function is to bake textures from blender in pbr format (for proceduraly made materials in Blender).
+The first function is to bake textures from blender in pbr format (for proceduraly made materials in Blender). In order for it
+to work correctly the renderer must be in cycles. In addition the user must create an image texture with a new image with the resolution
+1024 x 1024. Then if both the image texture and object are selected it should work properly. The files will be saved to the C drive
+in folder named Textures
+(C:\Textures)
 
 The second function is to convert a pbr texture set to Unreal texture set by combining the AO, Roughness, and Mettalic maps into a singular map in the cycles shader editor and bake it back out.
 
