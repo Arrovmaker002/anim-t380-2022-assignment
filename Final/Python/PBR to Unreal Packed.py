@@ -72,7 +72,7 @@ class BakeARMOperator(Operator):
             mat.use_nodes = True
             # Because this was made with node we say its true
             nodes = mat.node_tree.nodes
-            texture_node = nodes.new('ARMMabkeNode')
+            texture_node = nodes.new('ShaderNodeTexImage')
             texture_node.name = 'Bake_node'
             texture_node.select = True
             nodes.active = texture_node
@@ -121,8 +121,8 @@ class QuickUI(bpy.types.Panel):
 
 
         #Get each operation that will be used for the panel
-        col.operator(SetupConvertOperator.bl_idname, text="Setup Convert")
-        col.operator(BakeARMOperator.bl_idname, text="Bake Color Map")
+        col.operator(SetupConvertOperator.bl_idname, text="Setup Convert Objects", icon="DOWNARROW_HLT")
+        col.operator(BakeARMOperator.bl_idname, text="Bake ARM Map", icon="RENDER_RESULT")
 
 
 
