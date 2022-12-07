@@ -45,7 +45,7 @@ for mat in obj.data.materials:
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ColorMap
 
-#Define class for Recalculating Normals
+#Bake the Color Map
 class BakeColorMapOperator(Operator):
 
 
@@ -65,7 +65,7 @@ class BakeColorMapOperator(Operator):
     
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~RoughnessMap
 
-#Define class for Recalculating Normals
+#Bake the Roughness Map
 class BakeRoughnessMapOperator(Operator):
 
 
@@ -85,7 +85,7 @@ class BakeRoughnessMapOperator(Operator):
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~NormalMap
 
-#Define class for Recalculating Normals
+#Bake the Normal Map
 class BakeNormalMapOperator(Operator):
 
 
@@ -105,7 +105,7 @@ class BakeNormalMapOperator(Operator):
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~EmissionMap
 
-#Define class for Recalculating Normals
+#Bake the Emission Map
 class BakeEmissionMapOperator(Operator):
 
 
@@ -125,7 +125,7 @@ class BakeEmissionMapOperator(Operator):
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~AmbientOcclusionMap
 
-#Define class for Recalculating Normals
+#Bake the AO Map
 class BakeAoMapOperator(Operator):
 
 
@@ -146,7 +146,7 @@ class BakeAoMapOperator(Operator):
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Bake All Maps
 
-#Define class for Recalculating Normals
+#Bake All the maps
 class BakeAllOperator(Operator):
 
 
@@ -176,16 +176,6 @@ class BakeAllOperator(Operator):
         img.save_render(filepath='C:\\Textures\\AO_baked.png')        
 
         return {'FINISHED'}
-
-
-
-    
-#In the last step, we are going to delete the nodes we created earlier
-#for mat in obj.data.materials:
-#    for n in mat.node_tree.nodes:
-#        if n.name == 'Bake_node':
-#           mat.node_tree.nodes.remove(n)
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Panel~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
